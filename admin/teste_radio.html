@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>DSJApplet</title>
+		
+<script language="javascript">
+
+	function HabCampos() {
+		  if (document.getElementById('mostrar').checked) {
+	  	   document.getElementById('campos').style.display = "";
+	  	   document.getElementById('submeter').style.display = "none";
+	  	   //  	   window.location = window.location.href; 
+	 	 }
+	  	else {
+	  		document.getElementById('submeter').style.display = "";
+	  		document.getElementById('campos').style.display = "none";
+	//   	  window.location = window.location.href; 
+	  	}
+	}
+
+</script>	
+</head>
+
+<body>
+
+	<input type = "radio" name = "t_show" value = "0" id = "mostrar"  onClick = "HabCampos()" >Yes
+	<input type = "radio" name = "t_show" value = "1"   id = "naomostrar" onClick = "HabCampos()" >No	
+	
+	<label id="campos" style="display:none">
+		<input type = "text" name = "nome"  id ="teste">
+	</label>
+	
+	<p>
+	
+	<label id="submeter" style="display:none">
+		<input type = "submit" name = "subm"  id ="testesubm">
+	</label>
+
+
+<!-- <div id="t_settings">This content is to be shown if the show text is enabled.</div>	
+	<div id="t_nao">Testando a opção Não</div>	 -->
+
+</body>
+</html>

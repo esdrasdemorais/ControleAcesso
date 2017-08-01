@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.2.0.v20120611 Build &lt;4.2.0.v20120612-1721></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/first_report.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.firstreport</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="302">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">net.sourceforge.jtds.jdbc.Driver</property>
+            <property name="odaURL">jdbc:jtds:sqlserver://SERVERSQL/ControleAcesso;instance=PROGUARUSA</property>
+            <property name="odaUser">proguarudb</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">M3AxZDNybTM=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <styles>
+        <style name="report" id="110">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="246">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="247">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="orientation">landscape</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="245">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">x-large</property>
+            <property name="fontWeight">bold</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">Relatório de Funcionários que esqueceram o Crachá</text-property>
+        </label>
+        <table id="248">
+            <property name="borderBottomColor">#000000</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderLeftColor">#000000</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderRightColor">#000000</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderTopColor">#000000</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="marginTop">20pt</property>
+            <property name="width">8.697916666666666in</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">fc_drt</property>
+                    <text-property name="displayName">fc_drt</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["fc_drt"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">st_nome</property>
+                    <text-property name="displayName">st_nome</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["st_nome"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">loc_nome</property>
+                    <text-property name="displayName">loc_nome</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["loc_nome"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">vs_data</property>
+                    <text-property name="displayName">vs_data</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["vs_data"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">vs_data_saida</property>
+                    <text-property name="displayName">vs_data_saida</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["vs_data_saida"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">ps_nome</property>
+                    <text-property name="displayName">ps_nome</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ps_nome"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="281">
+                <property name="width">1.90625in</property>
+            </column>
+            <column id="282">
+                <property name="width">1in</property>
+            </column>
+            <column id="283">
+                <property name="width">0.8854166666666666in</property>
+            </column>
+            <column id="284">
+                <property name="width">2.0208333333333335in</property>
+            </column>
+            <column id="285">
+                <property name="width">1.40625in</property>
+            </column>
+            <column id="286">
+                <property name="width">1.46875in</property>
+            </column>
+            <column id="287">
+                <property name="width">0.010416666666666666in</property>
+            </column>
+            <header>
+                <row id="249">
+                    <cell id="250">
+                        <label id="295">
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontSize">14pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="textUnderline">underline</property>
+                            <property name="marginTop">10pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <text-property name="text">Nome</text-property>
+                        </label>
+                    </cell>
+                    <cell id="251">
+                        <label id="296">
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontSize">14pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="textUnderline">underline</property>
+                            <property name="marginTop">10pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <text-property name="text">DRT</text-property>
+                        </label>
+                    </cell>
+                    <cell id="252">
+                        <label id="297">
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontSize">14pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="textUnderline">underline</property>
+                            <property name="marginTop">7pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <text-property name="text">Nº do Crachá</text-property>
+                        </label>
+                    </cell>
+                    <cell id="253">
+                        <label id="298">
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontSize">14pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="textUnderline">underline</property>
+                            <property name="marginTop">10pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <text-property name="text">Setor</text-property>
+                        </label>
+                    </cell>
+                    <cell id="254">
+                        <label id="300">
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontSize">14pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="textUnderline">underline</property>
+                            <property name="marginTop">7pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <text-property name="text">Data de Entrada</text-property>
+                        </label>
+                    </cell>
+                    <cell id="255">
+                        <label id="301">
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontSize">14pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="textUnderline">underline</property>
+                            <property name="marginTop">7pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <text-property name="text">Data de Saída</text-property>
+                        </label>
+                    </cell>
+                    <cell id="256"/>
+                </row>
+            </header>
+            <detail>
+                <row id="257">
+                    <property name="height">0.5625in</property>
+                    <property name="backgroundColor">#BEFCF5</property>
+                    <cell id="258">
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                        <data id="313">
+                            <property name="fontSize">12pt</property>
+                            <property name="marginTop">5pt</property>
+                            <property name="paddingTop">5pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">ps_nome</property>
+                        </data>
+                    </cell>
+                    <cell id="259">
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                        <data id="307">
+                            <property name="fontSize">12pt</property>
+                            <property name="marginTop">5pt</property>
+                            <property name="paddingTop">5pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">fc_drt</property>
+                        </data>
+                    </cell>
+                    <cell id="260">
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                        <label id="308">
+                            <property name="fontSize">12pt</property>
+                            <property name="marginTop">5pt</property>
+                            <property name="paddingTop">5pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">1</text-property>
+                        </label>
+                    </cell>
+                    <cell id="261">
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                        <data id="309">
+                            <property name="fontSize">10pt</property>
+                            <property name="marginTop">5pt</property>
+                            <property name="paddingTop">5pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">st_nome</property>
+                        </data>
+                    </cell>
+                    <cell id="262">
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                    </cell>
+                    <cell id="263">
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                        <data id="312">
+                            <property name="fontSize">12pt</property>
+                            <property name="marginTop">5pt</property>
+                            <property name="paddingTop">5pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">vs_data_saida</property>
+                        </data>
+                    </cell>
+                    <cell id="264">
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+        <image id="314">
+            <property name="marginTop">10pt</property>
+            <property name="marginLeft">300pt</property>
+            <property name="height">0.3645833333333333in</property>
+            <property name="width">1.15625in</property>
+            <property name="source">embed</property>
+            <property name="imageName">print.gif</property>
+            <list-property name="action">
+                <structure>
+                    <property name="linkType">hyperlink</property>
+                    <expression name="uri" type="constant">javaScript:window.print()</expression>
+                    <property name="targetWindow">_parent</property>
+                </structure>
+            </list-property>
+        </image>
+    </body>
+    <list-property name="images">
+        <structure>
+            <property name="name">print.gif</property>
+            <property name="type">image/gif</property>
+            <property name="data">
+                R0lGODlhbwAjAPf/AOPi4sbLy/PU0+Dg4Pfx8PT9/ZojHLMlHawlHKU3MPz+/rRWUMLCwdoqIu/u7v34
+                +dLR0cXExNIlHcUmHeO9uqMkHKeMiqutrKuZmLcaEZ5aVZpHQ87NzdkkHNt4c6NNR8kmHcYcE9gdFd3c
+                3Pj499EeFdvb2r0mHcEmHZohGds8NZwqJO3s7MTEw6akpPX4+fDv77G3t5scFcbGxZwxK+Dg3/O9u8fG
+                xt/e3pgOBsHFxJskHZk7NbS7upoZEsnJyM4lHb++vtnZ2emKhfb19bklHfLx8ZYbFNrY2dYlHcrKyZkT
+                DL/Iyfv8/JokHOnn58DAv9YhGcTDwssgF5kbFZ0kHP39/f7+/uScj/v7+/r6+vz8/PPUz9hxXs1GLtFV
+                Puiqn/j4+PX19fPz89x/bvb29uy4r/Ly8vfj3/f39/n5+erq6vr6+fPz8vf39vDw8NRjTvT09Ovr6+Df
+                3+jo5/Hx8fz8+8jIx9jX1+np6PX19Ojo6Onp6fLy8f7//+CNfvHy8vb29fHx8Ofm5ufn5+Hh4e7t7fz/
+                //z8/erq6eLi4fz9/f39/Pj4+fvx7/Hw8Ovr6uno6Obm5szMy+Pj48XFxP///uTk5Pn5+Pv6+u3u7vPy
+                8vj//+fn5vDGv93d3evq6sfHxqN9e73BwfDi4fj39/r6+7rGxry7u/r9/vj9/O/IxscrIcM2L/fp6MI6
+                NNDPzsR+ef39/vr5+KyjoqKQjfCpp+nZ144gGdExKrIoH9dkXerp6efo6Ovs6vba2L21tezd2/P49+7u
+                7fn5+sXGxP/+/ow1MNjY19TU07a/wPLz8+eMiP38/OLCwLNgW+vPzubl5ebm5eNgWZoXEPL089gSCPr4
+                +PXs7Pj9/fPx8s3U1PDw7/T088wkG8EiGfT19JpjX6hnY/Dx8ZJwbp6Fg5+Wlda8uuj4+c2IhN2RjcPE
+                w7nBwd1LRL7Fxuno6ezr6+KGgdzc2+BQSeNfWZxrafv7/J9zcfPz9MnKyMvLyvHt7Mk4HsUqDv//////
+                /yH5BAEAAP8ALAAAAABvACMAAAj/AP8JHEiwYMEtZfSISaMmyxYrVq4YnEixosWLGDNqrKhlzJUtWsqM
+                eQPjjaA2C9WwySJxo8uXMGMavDJHjL+bN61oIREHEAw5kehEyiKzqNGjBs8IsYKzadMri8pAsoO0qtWX
+                AChdccr1Zqk2La+KHWvw0xlEEbs2NZKGrFu3V6RZ2ZKl7hZGsq5sxXnljZa3gK/WgeHvyty6WewgtmMH
+                UZgzVgJLPjqgjGG9hq0wYrSFbhZEYsr4m0wa5hYhLCGqhqhXtb84Z0rLtpglTZqtcz61Xs07raFEs4MP
+                tPLGEKBUftAxiaHJX+fn0KH7K0RHePA176px8vdLnThywLb7/znUBLF5u5aS8bFeOo0kGKoOCfCQq0QJ
+                CSqmDbHhys94BeexpEYEnbA32RiXLMMJKR6wEsIU3kggQRQiiNCBCvRgIUAmh5CnxYf+OHABEQYGpkYh
+                +LxAwSsZfDPBiyCAAISEUVAoQgPzDLFKGwUI00cjZQyAyU0lknWFJG+oqEsGRZxwAgoowCijhEl00EGF
+                HbQTDzTZ+MEXREQWWZUVhbywzwI5IIDAAUU0ecKLE8Q4pQRVdmBNAzbcRMQYTN10mUVc9NPFP1j00w8Y
+                AnnRDz//BGqooYj+w8+j/XhhhkD8MFrooYkuiqmmlApqkBWUqHLLCkdUUYGaB7Dp5JtSAv8xYwkN2IIT
+                LFCM4eeHcQAq6qZk/IOGoYwGOug/cPTDhaSM/uOIF81mSqihwQ7rKbPTYiFQodoSdAUlhwRDgw87GKDq
+                qmu6GSWcIEwxBTNNgemPJVmEocUgvg5aKD9e/ANGpcWK6m8/2korUBfKYrtvv/9C+2m2AhlbkDHRKEDA
+                MzlUYcDG5lawaqtNQvliCLs80NUV9oThhhvVVSRxoV/0gwYZXnwR8LH/Ftzss/0q3E/MM9ccLajdcmtQ
+                HA74cw4u1MiQQrkcd4wumxm0IoBaWahRRiB9sJDvtH8c6gUZNjcqcMzLTvooHMv6HDYYY5ft86P8dGvQ
+                GmIIY8ExK1D/4YMMBkAdNccypKOWFWy4odAaZXxdqBn8JAtG2Y4SG6m0YR/rM+SSyy0tt2hA2/ZEYWiy
+                jQsWaMDDDj74kELggx+RgCsnmxJGIG0EQklkLv/ajxnJyky5wAQZrGi3n/8ePBqeEz1tz96G0UceydwR
+                ABPK0CKKBjSkQI3rO0BNRSxqbRFGGbAZMUhYE738e6H9Dq/5QAabsagjm8P/T/MQ79/PHwXRAgc4kI8Z
+                zKASEagEE04RAwzc4wM0oELTUvA0Z/hjEazJCSYUV4c4DEIMF3GfGTzRj2DJzyAG+wcZSrg5EppwaP1D
+                Q6bQQJAt4AEVN1DCHUJxhx/coAU6cIcy/y5Qi3psYAU+WEICsOGHTHzIIVsghuLaMI4zFIJ3YqoKDCKg
+                jwFWIggMOGAE1uEOdsTABeUIBw8+cA0/fOiNjUiDGNogCEA8wQHsy6JMnDOGQczhBlL4xBog0II7FOOA
+                UmDAKHpwAXNgYBaLeKMW2CDHbgzmDHP4ix6LUpcxPMIBn4DAGiLzhmQogQM/CEUlVhkBKayjBwHwhxWy
+                8CE1kCAQYzgDDATRCRbkcZMuGcETiPCISHjtCs0QAyhGEAoG3GESk9DhDqFggjWAIgw32UIjxDAGQJCE
+                G5/QJDBjMgYOJAMGm9iEGuLgyTkgQQ58wEMoggBGBuBBk2yQgyT20JsHErgBHGcwgiFMEIZxGkULlOAA
+                HnihDQfgwARyKAMb2BCGMcDjEkIgRBieQ8sw1GEPNQBAL/ZQCCHIYSURMehLCnOFNoQSAkIwwQAoQQlF
+                1LSmhZhDIQpRg57WYKc1mIM8TCAEPCBDEXngAySGMYYtqBQmLIWiYiT5ITcIggV8IAQh6ECHPeQhD4lI
+                xBrkAAlf1EELmNnKUzUSEAA7
+            </property>
+        </structure>
+    </list-property>
+</report>
